@@ -1,0 +1,33 @@
+  <!-- Columna derecha: Formulario -->
+  <div class="card-container">
+  <div class="login-wrapper">
+    <!-- Columna izquierda: Imagen con overlay -->
+    <div class="login-image">
+      <div class="overlay"></div>
+      <img src="https://images.pexels.com/photos/5405597/pexels-photo-5405597.jpeg" alt="Imagen de bienvenida" />
+    </div>
+
+    <!-- Columna derecha: Formulario -->
+    <div class="login-form">
+      <div class="form-content">
+        <p-card header="Inicio de sesión" styleClass="ui-card-shadow">
+          <div class="p-fluid">
+            <div class="p-field" style="margin-bottom: 1rem;">
+              <label for="username">Usuario</label>
+              <input pInputText id="username" [(ngModel)]="username" type="text" placeholder="Usuario" />
+            </div>
+
+            <div class="p-field" style="margin-bottom: 1rem;">
+              <label for="password">Contraseña</label>
+              <input pPassword id="password" [(ngModel)]="password" toggleMask placeholder="••••••" />
+            </div>
+
+            <button pButton label="Login" class="p-button-primary" (click)="login()" style="margin-bottom: 1rem;"></button> 
+
+            <p-messages [value]="messages"></p-messages> 
+          </div>
+        </p-card>
+      </div>
+    </div>
+  </div>
+</div>

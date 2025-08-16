@@ -1,0 +1,41 @@
+<h1>Delivery Home</h1>
+
+<div class="map-wrapper">
+  <div id="map"></div>
+</div>
+
+<div class="packages-list">
+  <h2>Paquetes Asignados</h2>
+
+  <div *ngIf="packages.length === 0" class="no-packages">
+    No tienes paquetes asignados actualmente.
+  </div>
+
+  <div *ngFor="let pkg of packages" class="package-card">
+    <div class="package-info">
+      <h3>Paquete #{{ pkg.id }}</h3>
+      <p><strong>Destino:</strong> {{ pkg.delivery_address }}</p>
+
+      <div class="package-actions">
+        <!-- Dropdown -->
+        <p-dropdown
+          [options]="tipoStatus"
+          [(ngModel)]="pkg.status"
+          optionLabel="label"
+          optionValue="value"
+          placeholder="Selecciona el estatus">
+        </p-dropdown>
+
+        <!-- Botón actualizar -->
+        <button
+          pButton
+          type="button"
+          label="Actualizar Estado"
+          icon="pi pi-check"
+          class="boton"
+          (click)="updatePackageStatus(pkg.id, pkg.status)">
+        </button> 
+      </div>
+    </div>
+  </div>
+</div>

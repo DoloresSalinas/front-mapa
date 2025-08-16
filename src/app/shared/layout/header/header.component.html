@@ -1,0 +1,15 @@
+<p-menubar [model]="[]">
+  <ng-template pTemplate="start">
+    <img
+      src="https://res.cloudinary.com/ddfc17kwj/image/upload/v1754580592/vida_saludable_2_sys1xa.png"
+      alt="Logo Empresa"
+      class="logo"
+    />
+  </ng-template>
+
+  <ng-template pTemplate="end">
+    <div class="icon-container"> 
+      <span class="pi pi-times-circle icon-link" title="Cerrar sesión" (click)="logout()"></span>
+    </div>
+  </ng-template>
+</p-menubar>

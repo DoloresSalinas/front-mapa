@@ -1,0 +1,118 @@
+<h1>Admin Home</h1>
+
+<div class="map-wrapper" style="height: 400px; margin-bottom: 1rem;">
+  <div id="map" style="width: 100%; height: 100%;"></div>
+</div>
+
+<h2>Datos en tiempo real</h2>
+<ul>
+  <li *ngFor="let dato of datos">
+    {{ dato.timestamp }} - {{ dato.valor }}
+  </li>
+</ul>
+
+<p-button label="Agregar paquete" (onClick)="showModal = true"></p-button>
+
+<div class="grid-container" style="margin-top: 1rem;">
+  <div *ngFor="let item of ubicaciones" class="grid-item">
+    <strong>Usuario: {{ item.username }}</strong>  
+    <div>Estado: {{ item.status }}</div>
+    <div>Ubicación: {{ item.last_lat }}, {{ item.last_lng }}</div>
+  </div>
+</div>
+
+<p-dialog header="Añadir paquete" [(visible)]="showModal" [modal]="true" [closable]="true" [style]="{width: '400px'}">
+  <form (ngSubmit)="submitForm()" #packageForm="ngForm" novalidate>
+    
+    <div class="p-field">
+      <label for="delivery_address">Dirección entrega</label>
+      <input
+        type="text"
+        pInputText
+        id="delivery_address"
+        [(ngModel)]="form.delivery_address"
+        name="delivery_address"
+        required
+        #delivery_address="ngModel"
+      />
+      <small *ngIf="delivery_address.invalid && delivery_address.touched" class="p-error">
+        Dirección es requerida.
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="delivery_lat">Latitud entrega</label>
+      <input
+        type="number"
+        pInputText
+        id="delivery_lat"
+        [(ngModel)]="form.delivery_lat"
+        name="delivery_lat"
+        step="0.000001"
+        required
+        #delivery_lat="ngModel"
+      />
+      <small *ngIf="delivery_lat.invalid && delivery_lat.touched" class="p-error">
+        Latitud válida es requerida.
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="delivery_lng">Longitud entrega</label>
+      <input
+        type="number"
+        pInputText
+        id="delivery_lng"
+        [(ngModel)]="form.delivery_lng"
+        name="delivery_lng"
+        step="0.000001"
+        required
+        #delivery_lng="ngModel"
+      />
+      <small *ngIf="delivery_lng.invalid && delivery_lng.touched" class="p-error">
+        Longitud válida es requerida.
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="userSelect">Usuario</label>
+      <p-dropdown
+        id="userSelect"
+        [options]="userOptions"
+        [(ngModel)]="form.id"
+        name="id"
+        placeholder="Selecciona el usuario" 
+        #id="ngModel"
+      ></p-dropdown>
+      <small *ngIf="id.invalid && id.touched" class="p-error">
+        Usuario es requerido.
+      </small>
+    </div>
+
+    <div class="p-field">
+      <label for="statusSelect">Estatus</label>
+      <p-dropdown
+        id="statusSelect"
+        [options]="tipoStatus"
+        [(ngModel)]="form.status"
+        name="status"
+        placeholder="Selecciona el estatus" 
+        #status="ngModel"
+      ></p-dropdown>
+      <small *ngIf="status.invalid && status.touched" class="p-error">
+        Estatus es requerido.
+      </small>
+    </div>
+
+    <button
+      class="boton"
+      type="submit"
+      pButton
+      label="Enviar"
+      [disabled]="packageForm.invalid"
+    ></button>
+
+  </form>
+
+  <p-messages [value]="messages"></p-messages>
+</p-dialog>

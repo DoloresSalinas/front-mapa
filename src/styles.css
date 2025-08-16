@@ -1,0 +1,10 @@
+:root {
+  --surface-ground: #f8f9fa;
+  --text-color: #495057; 
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-family);
+}
+

@@ -1,0 +1,82 @@
+.header {
+  background-color: #000000; /* fondo claro */
+  color: #bdd1e6;            /* texto oscuro */
+  font-size: 14px;
+  text-align: center;
+  border-top: 1px solid #dee2e6;
+}
+
+.logo-container {
+  flex-shrink: 0;
+}
+
+.logo {
+  height: 80px;
+  width: 80px;
+  border-radius: 50%;
+  object-fit: cover; 
+  margin-left: 20px;
+}
+
+app-header {
+  display: block;
+}
+
+app-header .p-menubar {
+  border-radius: 0;
+  border-left: none;
+  border-right: none;
+  border-top: none;
+  padding: 0 2rem;
+  height: 70px;
+  display: flex;
+  align-items: center;
+}
+
+app-header .p-menuitem-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.home-icon-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-right: 1rem;
+  text-decoration: none;
+  color: inherit;
+}
+
+.pi-times-circle {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #c00;
+  transition: color 0.3s;
+}
+
+.pi-times-circle:hover {
+  color: #900;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-right: 1rem;
+}
+
+.icon-link {
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #2e2e2e81;
+  transition: color 0.2s;
+}
+
+/* Hover efecto */
+.icon-link:hover {
+  color: #f89878;
+}

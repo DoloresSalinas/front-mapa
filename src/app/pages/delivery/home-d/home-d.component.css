@@ -1,0 +1,84 @@
+.map-wrapper {
+  height: 400px;
+  margin-bottom: 20px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.packages-list {
+  margin-top: 20px;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 8px;
+}
+
+.no-packages {
+  text-align: center;
+  padding: 20px;
+  color: #6c757d;
+}
+
+.package-card {
+  border: 1px solid #dee2e6;
+  border-radius: 8px;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: white;
+  transition: box-shadow 0.2s;
+}
+
+.package-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.package-info h3 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.package-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap; /* para que en pantallas chicas se rompa */
+}
+
+.package-actions .p-dropdown {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.boton {
+  margin-top: 0;
+}
+
+.iniciar {
+  background-color: #27ae60 !important;
+  border: none;
+}
+
+.iniciar:hover {
+  background-color: #1e8449 !important;
+}
+
+/* 📱 Pantallas pequeñas: apilar en columna */
+@media (max-width: 600px) {
+  .package-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .package-actions .p-dropdown,
+  .package-actions .boton {
+    width: 100% !important;
+  }
+
+  .boton {
+    margin-top: 0.5rem;
+  }
+}
